@@ -23,7 +23,7 @@
 ---
 ### Writeup / README
 
-This write up is is also available [here].(https://github.com/geek101/CarND-Vehicle-Detection/blob/master/README.md)  
+This write up is is also available [here](https://github.com/geek101/CarND-Vehicle-Detection/blob/master/README.md)  
 
 You're reading it!
 
@@ -80,15 +80,16 @@ GridSearch/RandomSearch with the following features(refer code cell 27):
 
 `{'C': [1, 10, 100], 'gamma': [1.0, 0.1, 0.01, 0.001, 0.0001], 'kernel': ['rbf', 'linear']}`
 yielded the best params:
-`{'C': [10], 'gamma': [0.0001], 'kernel': ['rbf']}` and test error was at 99.8% however the model performance we quite poor.
+`{'C': [10], 'gamma': [0.0001], 'kernel': ['rbf']}` and test error was at 99.8% however the model performance with repect to run time was quite poor.
 
-Hence I have used a linear SVM model instead and it yielded test error 99
+Hence I have used a linear SVM model instead and it yielded test error 
+99.6% which is still quite good and its run time was order of magnitiude faster with respect to training and inference.
 
 ### Sliding Window Search
 
 I have used the efficient sliding window implementation as described in the lesson where hog features are first extracted for the entire image and window is then run across them. This is done for all three channels.
 
-The following are the various scale parameters that I have used the window search to help with vehicle detection. This seems to work best without having too many false positives and enough overlap of vehicle detection so that thresholding helps remove false positives.
+The following are the various scale parameters that I have used for window search. This seems to work best without having too many false positives and enough overlap of windows to help with of vehicle detection.
 
 `[0.75, 1.0, 1.5, 2.0, 2.5]`
 
@@ -96,7 +97,7 @@ The following are the various scale parameters that I have used the window searc
 
 #### Few more examples of vehicle detection using sliding window.
 
-Once can notice false positives.
+Once can notice false positives(2nd, 4th and 5th).
 ![alt text][image12]
 
 ---
